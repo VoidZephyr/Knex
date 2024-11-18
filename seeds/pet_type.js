@@ -1,0 +1,18 @@
+/**
+ * @param { import("knex").Knex } knex
+ * @returns { Promise<void> } 
+ */
+// seeds/pet_type.js
+exports.seed = function(knex) {
+  // Deletes ALL existing entries
+  return knex('pet_type').del()
+    .then( () => {
+      // Inserts seed entries
+      return knex('pet_type').insert([
+        {id: 1, name: 'Bird'},
+        {id: 2, name: 'Cat'},
+        {id: 3, name: 'Dog'},
+        {id: 4, name: 'Fish'},
+      ]);
+    });
+};
